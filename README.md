@@ -27,6 +27,10 @@ Create the user to access the API via.
 
 `/user add name=prometheus group=prometheus password=changeme`
 
+open port 
+
+`/ip firewall filter add chain=input protocol=tcp dst-port=8728 disabled=no action=accept place-before 0`
+
 #### Single Device
 
 `./mikrotik-exporter -address 10.10.0.1 -device my_router -password changeme -user prometheus`
