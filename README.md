@@ -42,7 +42,8 @@ created for the exporter to use to access the API.
 ##### Docker
 Add  and  use the following in docker-compose file.
 
-`version: "3"
+```
+version: "3"
 
 services:
   prom_mikrotik_exporter:
@@ -53,7 +54,7 @@ services:
     ports:
       - 9436:9436
     restart: unless-stopped
-`
+````
 
 the .env file contents
 
