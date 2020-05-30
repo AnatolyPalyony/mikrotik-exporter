@@ -39,6 +39,31 @@ where `address` is the address of your router. `device` is the label name for th
 in the metrics output to prometheus. The `user` and `password` are the ones you
 created for the exporter to use to access the API.
 
+##### Docker
+Add  and  use the following in docker-compose file.
+
+`version: "3"
+
+services:
+  prom_mikrotik_exporter:
+    image: nshttpd/mikrotik-exporter:1.0.11 # Make sure to check versioning
+    volumes:
+      - './config:/config'
+    env_file: .env
+    ports:
+      - 9436:9436
+    restart: unless-stopped
+`
+
+the .env file contents
+
+`CONFIG_FILE=/config/config.yml`
+
+and then put config.yml for the Mikrotik Exporter in <docker-compose.yml location>/config
+
+
+
+
 #### Config File
 
 `./mikrotik-exporter -config-file config.yml`
